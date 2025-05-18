@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "bc-cvlb"
+version = "0.1.0"
+description = ""
+authors = ["Luis <luiscvlh11@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = {extras = ["standard"], version = "^0.115.12"}
+sqlalchemy = "^2.0.41"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
