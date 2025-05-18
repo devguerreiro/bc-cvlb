@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from database import SessionLocal, engine
 from fastapi.middleware.cors import CORSMiddleware
 
-from . import models, schemas
+from app import models, schemas
+from app.database import SessionLocal, engine
+
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -27,7 +28,7 @@ def get_db():
 
 
 @app.get("/tasks", response_model=list[schemas.Task])
-def read_tasks(db: Session = Depends(get_db)):
+def list_tasks(db: Session = Depends(get_db)):
     return db.query(models.Task).all()
 
 
